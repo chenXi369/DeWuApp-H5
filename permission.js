@@ -5,7 +5,8 @@ const loginPage = "/pages/login"
   
 // 页面白名单
 const whiteList = [
-  '/pages/login', '/pages/register'
+  '/pages/login', '/pages/register', '/pages/address/list', '/pages/mine/mine',
+  '/pages/home/home', '/pages/myOrder/index'
 ]
 
 // 检查地址白名单
@@ -16,6 +17,7 @@ function checkWhite(url) {
 
 // 页面跳转验证拦截器
 let list = ["navigateTo", "redirectTo", "reLaunch", "switchTab"]
+
 list.forEach(item => {
   uni.addInterceptor(item, {
     invoke(to) {

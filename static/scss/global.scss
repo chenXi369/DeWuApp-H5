@@ -2,6 +2,26 @@
 	text-align: center;
 }
 
+.flex {
+	display: flex;
+}
+
+.flex-between {
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex-y-between {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.flex-around {
+	display: flex;
+	justify-content: space-around;
+}
+
 .font-13 {
 	font-size: 13px;
 }
@@ -31,7 +51,7 @@
     -webkit-transform: matrix(0.5, 0.5, -0.5, 0.5, 0, 0);
     transform: matrix(0.5, 0.5, -0.5, 0.5, 0, 0);
     position: absolute;
-    top: 50%;
+    top: 43rpx;
     margin-top: -6px;
     right: 30rpx;
   }
@@ -43,6 +63,13 @@
     background-color: #fff;
     color: #333;
     padding: 26rpx 30rpx;
+  }
+  
+  .list-cell .right-slot {
+	  font-size: 24rpx;
+	  position: absolute;
+	  top: 28rpx;
+	  right: 58rpx;
   }
   
   .list-cell:first-child {
@@ -68,16 +95,17 @@
   
   
   .menu-list {
-    margin: 15px 15px;
+    margin: 15px 0;
   
     .menu-item-box {
+	  font-size: 30rpx;
       width: 100%;
       display: flex;
       align-items: center;
   
       .menu-icon {
         color: #007AFF;
-        font-size: 16px;
+        font-size: 18px;
         margin-right: 5px;
       }
       

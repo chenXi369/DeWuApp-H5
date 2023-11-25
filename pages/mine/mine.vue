@@ -11,7 +11,7 @@
 						mode="widthFix">
 					</image>
 					<view v-if="!name" @click="handleToLogin" class="login-tip">
-						点击登录
+						登录/注册
 					</view>
 					<view v-if="name" @click="handleToInfo" class="user-info">
 						<view class="u_title">
@@ -20,33 +20,53 @@
 					</view>
 				</view>
 			</view>
+			
+			<view class="lang-area" @click="changeLang">
+				<u-icon name="attach" size="32"></u-icon>
+				<text>中/英</text>
+			</view>
 		</view>
 
 		<view class="content-section">
-
 			<view class="menu-list">
+				<view class="list-cell list-cell-arrow">
+					<view class="menu-item-box" @click="toAllOrder(3)">
+						<view class="iconfont icon-user menu-icon"></view>
+						<view>购买</view>
+						<view class="right-slot">全部订单</view>
+					</view>
+					
+					<view class="bottom-slot flex-around">
+						<view class="title-icon" @click="toAllOrder(0)">
+							<image class="icon" src="/static/images/payOnBehalf-icon.png" mode=""></image>
+							<text class="title">待付款</text>
+						</view>
+						<view class="title-icon" @click="toAllOrder(1)">
+							<image class="icon" src="/static/images/delivery-agent-icon.png" mode=""></image>
+							<text class="title">待发货</text>
+						</view>
+						<view class="title-icon" @click="toAllOrder(2)">
+							<image class="icon" src="/static/images/tobe-received-icon.png" mode=""></image>
+							<text class="title">待收货</text>
+						</view>
+					</view>
+				</view>
 				<view class="list-cell list-cell-arrow" @click="handleToEditInfo">
 					<view class="menu-item-box">
 						<view class="iconfont icon-user menu-icon"></view>
-						<view>编辑资料</view>
+						<view>我的订阅</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleHelp">
 					<view class="menu-item-box">
 						<view class="iconfont icon-help menu-icon"></view>
-						<view>常见问题</view>
+						<view>账户</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleAbout">
 					<view class="menu-item-box">
 						<view class="iconfont icon-aixin menu-icon"></view>
-						<view>关于我们</view>
-					</view>
-				</view>
-				<view class="list-cell list-cell-arrow" @click="handleToSetting">
-					<view class="menu-item-box">
-						<view class="iconfont icon-setting menu-icon"></view>
-						<view>应用设置</view>
+						<view>卡券</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleToAddress">
@@ -55,14 +75,29 @@
 						<view>地址管理</view>
 					</view>
 				</view>
+				<view class="list-cell list-cell-arrow" @click="handleToAddress">
+					<view class="menu-item-box">
+						<view class="iconfont icon-setting menu-icon"></view>
+						<view>消息通知</view>
+					</view>
+				</view>
+				<view class="list-cell list-cell-arrow" @click="handleToAddress">
+					<view class="menu-item-box">
+						<view class="iconfont icon-setting menu-icon"></view>
+						<view>隐私条款</view>
+					</view>
+				</view>
 			</view>
-
+		</view>
+		<view class="footer-logout">
+			<u-button @click="logout">退出登录</u-button>
 		</view>
 	</view>
 </template>
 
 <script>
 	import storage from '@/utils/storage'
+	import lang from '@/common/locales/index.js'
 
 	export default {
 		data() {
@@ -79,33 +114,42 @@
 			}
 		},
 		methods: {
-			handleToInfo() {
-				this.$tab.navigateTo('/pages/mine/info/index')
-			},
-			handleToEditInfo() {
-				this.$tab.navigateTo('/pages/mine/info/edit')
-			},
-			handleToSetting() {
-				this.$tab.navigateTo('/pages/mine/setting/index')
+			// 中英文切换
+			changeLang() {
+				const currentLang = this.$i18n.locale
+				if (currentLang === 'zh') {
+				  this.$i18n.locale = 'en'
+				} else {
+				  this.$i18n.locale = 'zh'
+				}
+				this.$modal.msgSuccess(`${this.$i18n.locale === 'en' ? '英文' : '中文'}切换成功`)
 			},
 			handleToLogin() {
-				this.$tab.reLaunch('/pages/login')
+				uni.reLaunch({
+					url: '/pages/login'
+				})
+			},
+			// 跳转到订单页
+			toAllOrder(type) {
+				uni.navigateTo({
+					url: `/pages/myOrder/index?type=${type}`
+				})
 			},
 			handleToAvatar() {
-				this.$tab.navigateTo('/pages/mine/avatar/index')
+				uni.navigateTo('/pages/mine/avatar/index')
 			},
 			handleLogout() {
 				this.$modal.confirm('确定注销并退出系统吗？').then(() => {
 					this.$store.dispatch('LogOut').then(() => {
-						this.$tab.reLaunch('/pages/index')
+						uni.reLaunch('/pages/index')
 					})
 				})
 			},
 			handleHelp() {
-				this.$tab.navigateTo('/pages/mine/help/index')
+				uni.navigateTo('/pages/mine/help/index')
 			},
 			handleAbout() {
-				this.$tab.navigateTo('/pages/mine/about/index')
+				uni.navigateTo('/pages/mine/about/index')
 			},
 			// 跳转地址页面
 			handleToAddress() {
@@ -125,15 +169,50 @@
 	.mine-container {
 		width: 100%;
 		height: 100%;
-
+		
+		.bottom-slot {
+			padding: 40rpx 20rpx 20rpx;
+			width: 100%;
+			
+			.title-icon {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				
+				.title {
+					font-size: 24rpx;
+				}
+				.icon {
+					width: 50rpx;
+					height: 42rpx;
+					margin-bottom: 10rpx;
+				}
+			}
+		}
+		
+		.footer-logout {
+			width: 100%;
+			position: relative;
+			bottom: -30rpx;
+		}
 
 		.header-section {
-			padding: 15px 15px 45px 15px;
-			background-color: #3c96f3;
-			color: white;
+			padding: 15px 15px 15px 15px;
+			background-color: #fff;
+			color: #333;
+			position: relative;
+			
+			.lang-area {
+				position: absolute;
+				right: 40rpx;
+				top: 40rpx;
+			}
 
 			.login-tip {
-				font-size: 18px;
+				font-weight: 600;
+				font-size: 20px;
 				margin-left: 10px;
 			}
 
@@ -156,8 +235,8 @@
 		}
 
 		.content-section {
-			position: relative;
-			top: -50px;
+			width: 100vw;
+			margin-top: 30rpx;
 		}
 	}
 </style>

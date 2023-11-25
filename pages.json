@@ -4,6 +4,7 @@
 			"path": "pages/home/home",
 			"style": {
 				"navigationStyle": "custom",
+				"navigationBarTitleText": "首页",
 				"enablePullDownRefresh": false
 			}
 		},
@@ -11,6 +12,7 @@
 			"path": "pages/login",
 			"style": {
 				"navigationStyle": "custom",
+				"navigationBarTitleText": "登录",
 				"enablePullDownRefresh": false
 			}
 		},
@@ -18,6 +20,7 @@
 			"path": "pages/register",
 			"style": {
 				"navigationStyle": "custom",
+				"navigationBarTitleText": "注册",
 				"enablePullDownRefresh": false
 			}
 		},
@@ -25,6 +28,7 @@
 			"path": "pages/mine/mine",
 			"style": {
 				"navigationStyle": "custom",
+				"navigationBarTitleText": "我的",
 				"enablePullDownRefresh": false
 			}
 		},
@@ -32,6 +36,7 @@
 			"path": "pages/address/list",
 			"style": {
 				"navigationStyle": "custom",
+				"navigationBarTitleText": "收货地址",
 				"enablePullDownRefresh": false
 			}
 		},
@@ -39,6 +44,7 @@
 			"path": "pages/address/detail",
 			"style": {
 				"navigationStyle": "custom",
+				"navigationBarTitleText": "编辑新地址",
 				"enablePullDownRefresh": false
 			}
 		},
@@ -46,6 +52,15 @@
 			"path": "pages/search/index",
 			"style": {
 				"navigationStyle": "custom",
+				"navigationBarTitleText": "搜索",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/myOrder/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "我的订单",
 				"enablePullDownRefresh": false
 			}
 		}
