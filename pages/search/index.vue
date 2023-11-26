@@ -2,7 +2,7 @@
 <template>
 	<view class="search-page">
 		<view class="search-btn">
-			<u-search v-model="searchVal"></u-search>
+			<u-search :show-action="false" v-model="searchVal" shape="square" placeholder="输入商品名称/货号"></u-search>
 		</view>
 		<view class="main">
 			<view class="title">热门搜索</view>

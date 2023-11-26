@@ -30,10 +30,22 @@
 				current: null,
 				goodList: [
 					{
-						id: 1
+						id: 1,
+						status: 3,
+						size: '42',
+						pic: null,
+						name: '[闪电直发][11.11好价] adidasoriginals Forum 84 Low Adv 复古潮流',
+						num: 1,
+						price: '349.60'
 					},
 					{
-						id: 2
+						id: 2,
+						status: 3,
+						size: '42',
+						pic: null,
+						name: '',
+						num: 1,
+						price: '349.60'
 					}
 				]
 			}

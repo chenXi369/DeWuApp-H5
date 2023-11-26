@@ -63,6 +63,22 @@
 				"navigationBarTitleText": "我的订单",
 				"enablePullDownRefresh": false
 			}
+		},
+		{
+			"path": "pages/good/list",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "全部商品",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/good/detail",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false
+			}
 		}
 	],
 	"tabBar": {
