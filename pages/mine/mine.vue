@@ -11,11 +11,11 @@
 						mode="widthFix">
 					</image>
 					<view v-if="!name" @click="handleToLogin" class="login-tip">
-						登录/注册
+						{{$t('mine.chinese')}}/{{$t('mine.english')}}
 					</view>
 					<view v-if="name" @click="handleToInfo" class="user-info">
 						<view class="u_title">
-							用户名：{{ name }}
+							{{$t('mine.username')}}：{{ name }}
 						</view>
 					</view>
 				</view>
@@ -23,7 +23,7 @@
 			
 			<view class="lang-area" @click="changeLang">
 				<u-icon name="attach" size="32"></u-icon>
-				<text>中/英</text>
+				<text>{{$t('mine.chinese')}}/{{$t('mine.english')}}</text>
 			</view>
 		</view>
 
@@ -32,65 +32,65 @@
 				<view class="list-cell list-cell-arrow">
 					<view class="menu-item-box" @click="toAllOrder(3)">
 						<view class="iconfont icon-user menu-icon"></view>
-						<view>购买</view>
-						<view class="right-slot">全部订单</view>
+						<view>{{$t('mine.buy')}}</view>
+						<view class="right-slot">{{$t('mine.allOrders')}}</view>
 					</view>
 					
 					<view class="bottom-slot flex-around">
 						<view class="title-icon" @click="toAllOrder(0)">
 							<image class="icon" src="/static/images/payOnBehalf-icon.png" mode=""></image>
-							<text class="title">待付款</text>
+							<text class="title">{{$t('mine.waitPay')}}</text>
 						</view>
 						<view class="title-icon" @click="toAllOrder(1)">
 							<image class="icon" src="/static/images/delivery-agent-icon.png" mode=""></image>
-							<text class="title">待发货</text>
+							<text class="title">{{$t('mine.pendingShipment')}}</text>
 						</view>
 						<view class="title-icon" @click="toAllOrder(2)">
 							<image class="icon" src="/static/images/tobe-received-icon.png" mode=""></image>
-							<text class="title">待收货</text>
+							<text class="title">{{$t('mine.pendingReceipt')}}</text>
 						</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleToEditInfo">
 					<view class="menu-item-box">
 						<view class="iconfont icon-user menu-icon"></view>
-						<view>我的订阅</view>
+						<view>{{$t('mine.mySubscription')}}</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleHelp">
 					<view class="menu-item-box">
 						<view class="iconfont icon-help menu-icon"></view>
-						<view>账户</view>
+						<view>{{$t('mine.account')}}</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleAbout">
 					<view class="menu-item-box">
 						<view class="iconfont icon-aixin menu-icon"></view>
-						<view>卡券</view>
+						<view>{{$t('mine.coupon')}}</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleToAddress">
 					<view class="menu-item-box">
 						<view class="iconfont icon-setting menu-icon"></view>
-						<view>地址管理</view>
+						<view>{{$t('mine.addressManagement')}}</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleToAddress">
 					<view class="menu-item-box">
 						<view class="iconfont icon-setting menu-icon"></view>
-						<view>消息通知</view>
+						<view>{{$t('mine.messageNotification')}}</view>
 					</view>
 				</view>
 				<view class="list-cell list-cell-arrow" @click="handleToAddress">
 					<view class="menu-item-box">
 						<view class="iconfont icon-setting menu-icon"></view>
-						<view>隐私条款</view>
+						<view>{{$t('mine.privacyPolicy')}}</view>
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="footer-logout">
-			<u-button @click="logout">退出登录</u-button>
+			<u-button @click="logout">{{$t('mine.loginOut')}}</u-button>
 		</view>
 	</view>
 </template>

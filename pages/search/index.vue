@@ -5,12 +5,12 @@
 			<u-search :show-action="false" v-model="searchVal" shape="square" placeholder="输入商品名称/货号"></u-search>
 		</view>
 		<view class="main">
-			<view class="title">热门搜索</view>
+			<view class="title">{{$t('search.topSearch')}}</view>
 			<view class="content">
 				<text class="tag" v-for="(item,index) in hotSearchArr" :key="index" 
 					@tap="searchCurItem(item)">{{item}}</text>
 			</view>
-			<view class="title">历史搜索</view>
+			<view class="title">{{$t('search.historicalSearch')}}</view>
 			<view class="content">
 				<text class="tag" v-for="(item,index) in historySearchArr" :key="index">{{item}}</text>
 			</view>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+	import lang from '@/common/locales/index.js'
 	export default {
 		data() {
 			return {

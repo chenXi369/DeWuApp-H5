@@ -4,8 +4,8 @@
 			<view class="search flex-between">
 				<u-search :show-action="false" @click="toSearch" shape="square" placeholder="搜索单品"></u-search>
 				<view class="right-title" @tap="toGoodList">
-					<text class="en">All</text>
-					<text class="zh">分类</text>
+					<text class="en">{{$t('home.allCategory')}}</text>
+					<!-- <text class="zh">分类</text> -->
 				</view>
 			</view>
 
@@ -15,20 +15,20 @@
 			</view>
 			
 			<view class="title-text flex-between">
-				<text class="name">先鉴别 后发货</text>
+				<text class="name">{{$t('home.identify')}}</text>
 				
 				<view class="right-icon flex">
 					<view class="label-icon">
 						<image src="" mode=""></image>
-						<text>多重鉴别</text>
+						<text>{{$t('home.multipleDiscrimination')}}</text>
 					</view>
 					<view class="label-icon">
 						<image src="" mode=""></image>
-						<text>逐件查验</text>
+						<text>{{$t('home.pieceByPieceInspection')}}</text>
 					</view>
 					<view class="label-icon">
 						<image src="" mode=""></image>
-						<text>正品保障</text>
+						<text>{{$t('home.genuineGuarantee')}}</text>
 					</view>
 				</view>
 			</view>
@@ -46,7 +46,7 @@
 
 <script>
 	import Good from '@/components/goodItem.vue'
-	
+	import lang from '@/common/locales/index.js'
 	export default {
 		data() {
 			return {
