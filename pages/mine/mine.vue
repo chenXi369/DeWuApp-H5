@@ -11,7 +11,7 @@
 						mode="widthFix">
 					</image>
 					<view v-if="!name" @click="handleToLogin" class="login-tip">
-						{{$t('mine.chinese')}}/{{$t('mine.english')}}
+						{{$t('mine.login')}}/{{$t('mine.register')}}
 					</view>
 					<view v-if="name" @click="handleToInfo" class="user-info">
 						<view class="u_title">
@@ -119,8 +119,24 @@
 				const currentLang = this.$i18n.locale
 				if (currentLang === 'zh') {
 				  this.$i18n.locale = 'en'
+				  uni.setTabBarItem({
+				  	index: 0,
+				  	text: 'HOME'
+				  })
+				  uni.setTabBarItem({
+				  	index: 1,
+				  	text: 'MINE'
+				  })
 				} else {
 				  this.$i18n.locale = 'zh'
+				  uni.setTabBarItem({
+				  	index: 0,
+				  	text: '首页'
+				  })
+				  uni.setTabBarItem({
+				  	index: 1,
+				  	text: '我的'
+				  })
 				}
 				this.$modal.msgSuccess(`${this.$i18n.locale === 'en' ? '英文' : '中文'}切换成功`)
 			},
@@ -144,12 +160,6 @@
 						uni.reLaunch('/pages/index')
 					})
 				})
-			},
-			handleHelp() {
-				uni.navigateTo('/pages/mine/help/index')
-			},
-			handleAbout() {
-				uni.navigateTo('/pages/mine/about/index')
 			},
 			// 跳转地址页面
 			handleToAddress() {

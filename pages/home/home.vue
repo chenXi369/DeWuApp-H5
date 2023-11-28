@@ -2,10 +2,10 @@
 	<view class="home-page">
 		<view class="search-header">
 			<view class="search flex-between">
-				<u-search :show-action="false" @click="toSearch" shape="square" placeholder="搜索单品"></u-search>
+				<u-search :show-action="false" @click="toSearch" shape="square" :placeholder="$t('home.searchItem')"></u-search>
 				<view class="right-title" @tap="toGoodList">
 					<text class="en">{{$t('home.allCategory')}}</text>
-					<!-- <text class="zh">分类</text> -->
+					<text class="zh">{{$t('home.className')}}</text>
 				</view>
 			</view>
 
@@ -184,7 +184,7 @@
 				}
 				
 				.right-icon {
-					width: calc(100% - 220rpx);
+					width: calc(100% - 180rpx);
 					
 					.label-icon {
 						text-align: right;
