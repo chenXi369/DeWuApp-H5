@@ -3,7 +3,7 @@
 	<view class="confirm-order">
 		<view class="main">
 			<view class="address">
-				
+				<view class="area-name"></view>
 			</view>
 			<view class="good-ctx">
 				<view class="top-good">

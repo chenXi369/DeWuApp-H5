@@ -7,8 +7,8 @@ const loginPage = "/pages/login"
 
 // 页面白名单（默认-首页，我的，登录。注册）
 const whiteList = [
-	'/pages/login', '/pages/register', '/pages/address/list', '/pages/mine/mine',
-	'/', '/pages/myOrder/index', '/pages/search/index', '/pages/good/list', '/pages/good/detail'
+	'/pages/login', '/pages/register', '/pages/address/list', '/pages/mine/mine', '/pages/home/home',
+	'/', '/pages/myOrder/index', '/pages/search/index', '/pages/good/list', '/pages/good/detail', '/pages/good/confirmOrder'
 ]
 
 // 检查地址白名单

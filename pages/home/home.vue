@@ -2,7 +2,7 @@
 	<view class="home-page">
 		<view class="search-header">
 			<view class="search flex-between">
-				<u-search :show-action="false" @click="toSearch" shape="square" :placeholder="$t('home.searchItem')"></u-search>
+				<u-search :disabled="true" :show-action="false" @click="toSearch" shape="square" :placeholder="$t('home.searchItem')"></u-search>
 				<view class="right-title" @tap="toGoodList">
 					<text class="en">{{$t('home.allCategory')}}</text>
 					<text class="zh">{{$t('home.className')}}</text>
@@ -95,7 +95,7 @@
 			// 跳转搜索页
 			toSearch() {
 				uni.navigateTo({
-					url: '/pages/search/index'
+					url: '../search/index'
 				})
 			},
 			// 跳商品列表页
